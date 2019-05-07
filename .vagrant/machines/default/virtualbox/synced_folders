@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/html":{"mount_options":["dmode=777","fmode=666","uid=1000","gid=1000"],"guestpath":"/var/www/html","hostpath":"C:/Users/adragos/Desktop/workhorse/site","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/adragos/Desktop/workhorse","disabled":false,"__vagrantfile":true}}}
