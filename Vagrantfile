@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
   # Box Settings
   config.vm.box = "ubuntu/bionic64"
 
+  config.vm.box_download_insecure = true
   # Provider Settings
   config.vm.provider "virtualbox" do |vb|
     vb.memory = 2048
