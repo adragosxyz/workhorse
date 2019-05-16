@@ -29,10 +29,7 @@ service apache2 restart
 apt-get install -y php7.2-common
 apt-get install -y php7.2-mcrypt
 apt-get install -y php7.2-zip
-
-# Set MySQL Pass
-debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+apt-get install -y php7.2-mysql
 
 # Install MySQL
 apt-get install -y mysql-server

@@ -1,0 +1,5 @@
+<?php
+
+/*
+method: POST
+*/

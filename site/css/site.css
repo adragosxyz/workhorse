@@ -1,0 +1,9 @@
+#logo-wh {
+	height: 50px;
+}
+
+@media only screen and (max-width: 375px) {
+	#logo-wh {
+		height: 30px;
+	}
+}
