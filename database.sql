@@ -27,6 +27,13 @@ CREATE TABLE AccountBalance (
                             PRIMARY KEY(Id)
                             );
 
+
+CREATE TABLE SSHKeys(Id INT NOT NULL AUTO_INCREMENT,
+                     IdUser INT NOT NULL, 
+                     SSHKey VARCHAR(1024),
+                     PRIMARY KEY (Id)
+                      );
+
 -- de adaugat
 -- Transactions, SSHKeys
 -- 
