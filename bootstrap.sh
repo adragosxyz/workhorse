@@ -38,7 +38,7 @@ apt-get install -y mysql-server
 # PHP-MYSQL lib
 apt-get install -y php7.2-mysql
 
-mysql < database.sql
+mysql < /vagrant/database.sql
 
 # Restart Apache
 sudo service apache2 restart
