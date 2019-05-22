@@ -1,3 +1,5 @@
+
+
 CREATE DATABASE workhorse;
 
 CREATE USER 'workhorse'@'localhost' IDENTIFIED BY 'workhorsepassword';
@@ -14,7 +16,8 @@ CREATE TABLE VirtualMachines  (Id INT NOT NULL AUTO_INCREMENT,
                               Path VARCHAR(100) NOT NULL,
                               PrivateIP VARCHAR(100) NOT NULL,
                               Subdomain VARCHAR(100) NOT NULL,                              
-                              StartDate DATE NOT NULL,
+                              StartDate DATETIME NOT NULL,
+                              LastPaidDate DATETIME NOT NULL,
                               Active TINYINT NOT NULL,
                               Price INT NOT NULL,
                               PRIMARY KEY (Id)
