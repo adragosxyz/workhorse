@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE workhorse;
 
 CREATE USER 'workhorse'@'localhost' IDENTIFIED BY 'workhorsepassword';
@@ -36,6 +34,64 @@ CREATE TABLE SSHKeys(Id INT NOT NULL AUTO_INCREMENT,
                      SSHKey VARCHAR(1024),
                      PRIMARY KEY (Id)
                       );
+
+-- #PENTRUTESTE
+INSERT INTO Users(Email, Password) VALUES('test@test.com', 'test');
+INSERT INTO Users(Email, Password) VALUES('popescu@test.com', 'test');                         
+INSERT INTO Users(Email, Password) VALUES('ion@test.com', 'test');
+INSERT INTO AccountBalance(IdUser, Balance) VALUES (1, 10000);
+INSERT INTO AccountBalance(IdUser, Balance) VALUES (2, 250);                                             
+INSERT INTO AccountBalance(IdUser, Balance) VALUES (3, 10);
+                                                                                                           
+INSERT INTO VirtualMachines(
+IdUser,
+Name,
+Path,
+PrivateIP,
+Subdomain,
+StartDate,
+LastPaidDate,
+Active,
+Price)
+VALUES (1, 'VM1', '/vms/VM1', '192.168.33.34', 'test1', NOW(), NOW(), 1, 100);
+
+INSERT INTO VirtualMachines(
+IdUser,
+Name,
+Path,
+PrivateIP,
+Subdomain,
+StartDate,
+LastPaidDate,
+Active,
+Price)
+VALUES (1, 'VM2', '/vms/VM2', '192.168.33.35', 'test2', NOW(), NOW(), 1, 200);
+
+INSERT INTO VirtualMachines(
+IdUser,
+Name,
+Path,
+PrivateIP,
+Subdomain,
+StartDate,
+LastPaidDate,
+Active,
+Price)
+VALUES (2, 'VM3', '/vms/VM3', '192.168.33.36', 'test3', NOW(), NOW(), 1, 100);
+
+INSERT INTO VirtualMachines(
+IdUser,
+Name,
+Path,
+PrivateIP,
+Subdomain,
+StartDate,
+LastPaidDate,
+Active,
+Price)
+VALUES (3, 'VM4', '/vms/VM4', '192.168.33.37', 'test4', NOW(), NOW(), 1, 100);
+-- #PENTRUTESTE                               
+                                                                                                           
 
 -- de adaugat
 -- Transactions, SSHKeys
