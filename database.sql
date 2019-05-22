@@ -97,16 +97,38 @@ VALUES (3, 'VM4', '/vms/VM4', '192.168.33.37', 'test4', NOW(), NOW(), 1, 100);
 -- Transactions, SSHKeys
 -- 
 
-/*
+
 CREATE EVENT e_hourly
     ON SCHEDULE
       EVERY 1 HOUR
-    COMMENT 'Substracts the price of machine from the user's balance if the virtual machine is active
+    COMMENT 'Substracts the price of machine from the users balance  if the virtual machine is active'
     DO
+      UPDATE AccountBalance AS AB -- ADUNAM TOATE VM-URILE PE CARE LE ARE USER-UL
+INNER JOIN (
+  SELECT IdUser, SUM(Price) as SumPrice 
+  FROM VirtualMachines 
+  WHERE Active=1 AND TIMESTAMPDIFF(HOUR, LastPaidDate, NOW()) > 0
+  GROUP BY IdUser
+) AS VM ON AB.IdUser=VM.IdUser
+SET AB.Balance=AB.Balance-VM.SumPrice;
+  
+UPDATE VirtualMachines as VM -- DACA NU MAI ARE BANI SA PLATEASCA IN CONTINUARE INCHIDEM VM-UL
+INNER JOIN AccountBalance as AB
+ON VM.IdUser=AB.IdUser
+SET VM.Active=0
+WHERE TIMESTAMPDIFF(HOUR, LastPaidDate, NOW()) > 0 AND (AB.Balance - VM.Price < 0);
+  
+UPDATE VirtualMachines  -- SCHIMBAM DATA ULTIMA PLATI
+SET LastPaidDate = NOW()
+WHERE TIMESTAMPDIFF(HOUR, LastPaidDate, NOW()) > 0 AND Active = 1;
+                    
 
+UPDATE AccountBalance -- NU LASAM USER-UL CU BALANTA NEGATIVA
+SET Balance = 0
+WHERE Balance < 0;
     UPDATE AccountBalance AS ab INNER JOIN VirtualMachines as vm ON vm.IdUser=ab.IdUser SET ab.Balance = (ab.Balance-vm.Price);
     UPDATE VirtualMachines AS vm INNER JOIN AccountBalance ON vm.IdUser = ab.IdUser AS ab SET vm.Active = IF(ab.Balance > 0, 1, 0); 
-*/
+
 
 
 SET password
