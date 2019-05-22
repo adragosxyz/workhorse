@@ -29,10 +29,18 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="/img/logo1.png" id="logo-wh"/>
       </a>
-      <a class="btn btn-primary" href="/account/login.php">Login</a>
+      <?php 
+      include './config/dep.php';
+      session_start();
+      if (isset($_SESSION['User']) && $_SESSION['User']!==null) {
+        header('Location: /dashboard/ ');
+        exit();
+      }
+      ?>
+        <a class="btn btn-primary" href="/account/login.php">Login</a>
     </div>
   </nav>
 

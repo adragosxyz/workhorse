@@ -21,7 +21,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-light bg-light static-top">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="/img/logo1.png" id="logo-wh"/>
           </a>
           <a class="btn btn-primary" href="/account/signout.php">Sign out</a>
