@@ -6,19 +6,22 @@
 
 }
 
+.footer-custom{
 
+    display: block;
+    height: 100%;
+}
 
 .formular {
 
    
-    margin-top: 10rem;
-    margin-bottom: 14rem;
+    margin-top: 11rem;
+    margin-bottom: 19rem;
 }
 
 .formular-sign-up {
-
    
-    margin-top: 10rem;
-    margin-bottom: 15rem;
+    margin-top: 9rem;
+    margin-bottom: 12rem;
 }
 

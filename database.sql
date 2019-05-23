@@ -35,6 +35,12 @@ CREATE TABLE SSHKeys(Id INT NOT NULL AUTO_INCREMENT,
                      PRIMARY KEY (Id)
                       );
 
+CREATE TABLE Coupons(Id INT NOT NULL AUTO_INCREMENT, 
+                       CouponCode  VARCHAR(32) NOT NULL,
+                       CouponValue INT NOT NULL
+                       PRIMARY KEY(Id)
+                       );
+
 -- #PENTRUTESTE
 INSERT INTO Users(Email, Password) VALUES('test@test.com', 'test');
 INSERT INTO Users(Email, Password) VALUES('popescu@test.com', 'test');                         
