@@ -102,17 +102,17 @@ if (isset($_POST['email']) && isset($_POST['pass1']) && isset($_POST['pass2']))
         <div class="label-custom text-primary">
         <label for="InputEmail">E-mail address:</label>
         </div>
-        <input type="email" name="email" class="form-control" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>"/>
+        <input type="email" name="email" class="form-control" placeholder="Enter your e-mail address" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>"/>
         <br>
         <div class="label-custom text-primary">
         <label for="InputPassword">Password:</label>
         </div>
-        <input type="password" id="InputPassword" class="form-control"name="pass1" />
+        <input type="password" id="InputPassword" class="form-control"name="pass1" placeholder="Enter a password" />
         <br>
         <div class="label-custom text-primary">
         <label for="Re-enterPassword">Re-enter Password::</label>
         </div>
-        <input type="password" id="Re-enterPassword" class="form-control" name="pass2" />
+        <input type="password" id="Re-enterPassword" class="form-control" name="pass2" placeholder="Re-enter the password" />
         <br>
     </div>
         <?php 
