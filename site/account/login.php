@@ -22,7 +22,15 @@ if (isset($_POST['email']) && isset($_POST['pass']))
     $data=mysqli_query($conn,$query);
     if ($row=mysqli_fetch_array($data))
     {
+        $query = "SELECT * FROM AccountBalance WHERE IdUser=".$row['Id'];
+        $data2 = mysqli_query($conn,$query);
+        if (!mysqli_fetch_array($data2))
+        {
+          $query = "INSERT INTO AccountBalance(IdUser,Balance) VALUES(".$row['Id'].",0);";
+          $data2 = mysqli_query($conn,$query);
+        }
         $_SESSION['User'] = new User($row['Id'], $row['Email']);
+
         header('Location: /dashboard');
         exit();
     }

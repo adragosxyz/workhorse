@@ -1,3 +1,18 @@
+<?php 
+
+include '../debug.php';
+include '../config/dep.php';
+
+session_start();
+if (!isset($_SESSION['User']) || $_SESSION['User']===null) {
+  header('Location: /account/login.php');
+  exit();
+}
+
+$user = $_SESSION['User'];
+
+?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -29,19 +44,20 @@
       </nav>
 
         <!-- Masthead -->
-  <header class="masthead text-white text-center">
+      <header class="masthead text-white text-center" style="padding-bottom:0;padding-top:0;">
         <div class="overlay"></div>
         <div class="container">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
-              <h1 class="mb-5">workhorse.</h1>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5 mt-5">Dashboard</h1>
+        </div>
+        </div>
         </div>
       </header>
+
         
       <!-- Icons Grid -->
-      <section class="features-icons bg-light text-center">
+      <section class="features-icons bg-light text-center" style="padding-top:20px;">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
@@ -49,23 +65,41 @@
                 <div class="features-icons-icon d-flex">
                   <i class="icon-user m-auto text-primary"></i>
                 </div>
-                <h3>Hello, user</h3>
-                <p class="lead mb-0">Here are your virtual machines:</p>
+                <h3><?php echo "Hello, ".$user->email."<br>"; ?></h3>
+                <p class="lead mb-0"><?php echo "Your balance is $".($user->balance/100); ?></p>
+                <a href="/account/redeem.php"> Click here to redeem a coupon!</a>
               </div>
             </div>
           </div>
         </div>
         <div class="container" id="virtual-machines">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                <div class="col-lg-6">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3" style="border:1px solid #007bff;border-radius: 25px;padding:10px;">
+                    <a href="/dashboard/addvm.php" class="text-decoration-none">
                     <div class="features-icons-icon d-flex">
-                        <i class="icon-screen-desktop m-auto text-primary"></i>
+                        <i class="icon-plus m-auto text-primary"></i>
                     </div>
-                    <h3>Ubuntu 18.04</h3>
-                    <p class="lead mb-0">ssh user@wrecktheline.com:2222</p>
+                    <h3>Create VM</h3>
+                    <p class="lead mb-0">$14/mo ($0.021/hour)</p>
+                    </a>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3" style="border:1px solid #007bff;border-radius: 25px;padding:10px;">
+                    <a href="/account/sshkeys.php" class="text-decoration-none">
+                    <div class="features-icons-icon d-flex">
+                        <i class="icon-key m-auto text-primary"></i>
                     </div>
-                </div>
+                    <h3>Manage SSH Keys</h3>
+                    <p class="lead mb-0">Changes will apply to new VMs</p>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <br>
+            <div class="text-center">
+            <p class="lead mb-0"><?php echo "You have ".sizeof($user->vms)." active Virtual Machine(s)"; ?></p>
             </div>
         </div>
       </section>
