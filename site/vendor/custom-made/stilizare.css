@@ -1,0 +1,14 @@
+.label-custom {
+
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
+.formular {
+
+    background-image: url('img/bg-showcase-1.jpg');
+    margin-top: 10rem;
+    margin-bottom: 15rem;
+}

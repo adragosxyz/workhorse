@@ -101,7 +101,7 @@ VALUES (3, 'VM4', '/vms/VM4', '192.168.33.37', 'test4', NOW(), NOW(), 1, 100);
 CREATE EVENT e_hourly
     ON SCHEDULE
       EVERY 1 HOUR
-    COMMENT 'Substracts the price of machine from the users balance  if the virtual machine is active'
+    COMMENT 'Pay VMs'
     DO
       UPDATE AccountBalance AS AB -- ADUNAM TOATE VM-URILE PE CARE LE ARE USER-UL
 INNER JOIN (
