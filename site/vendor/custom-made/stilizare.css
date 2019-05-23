@@ -6,9 +6,19 @@
 
 }
 
+
+
 .formular {
 
-    background-image: url('img/bg-showcase-1.jpg');
+   
+    margin-top: 10rem;
+    margin-bottom: 14rem;
+}
+
+.formular-sign-up {
+
+   
     margin-top: 10rem;
     margin-bottom: 15rem;
 }
+

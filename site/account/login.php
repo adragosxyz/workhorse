@@ -67,15 +67,17 @@ if (isset($_POST['email']) && isset($_POST['pass']))
          </nav>
          
     <main> 
-        <div class="overlay">
+    
+        <div class="overlay"></div>
             <div class="container">
-                <div class="formular">
+                <div class="formular ">
+    
     <form method="POST" action="/account/login.php">
     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <div class="label-custom text-primary">
         <label for="InputEmail">E-mail address:</label>
         </div>
-        <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Enter your e-mail"/>
+        <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Enter your e-mail address"/>
 
         <div class="label-custom text-primary">
         <label for="InputPassword">Password:</label>
@@ -109,6 +111,8 @@ if (isset($_POST['email']) && isset($_POST['pass']))
     </form>
     </div>
     </div>
+    
+
     </main>
 
 

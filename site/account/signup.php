@@ -59,17 +59,62 @@ if (isset($_POST['email']) && isset($_POST['pass1']) && isset($_POST['pass2']))
 ?>
 
 <html>
-    <head>
-        <title>workhorse. - Sign up</title>
-    </head>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Online VPS Service">
+<meta name="author" content="workhorse.">
+
+<title>workhorse.</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/custom-made/stilizare.css" rel="stylesheet">
+<!-- Custom fonts for this template -->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="/https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/landing-page.min.css" rel="stylesheet">
+<link href="/css/site.css" rel="stylesheet">
+
+</head>
     <body>
+
+    <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo1.png" id="logo-wh"/>
+      </a>
+    </div>
+         </nav>
+
+    <main>
+
+    <div class="overlay"></div>
+            <div class="container">
+                <div class="formular-sign-up ">
+
     <form method="POST" action="/account/signup.php">
-        <input type="email" name="email" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>"/>
+    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <div class="label-custom text-primary">
+        <label for="InputEmail">E-mail address:</label>
+        </div>
+        <input type="email" name="email" class="form-control" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>"/>
         <br>
-        <input type="password" name="pass1" />
+        <div class="label-custom text-primary">
+        <label for="InputPassword">Password:</label>
+        </div>
+        <input type="password" id="InputPassword" class="form-control"name="pass1" />
         <br>
-        <input type="password" name="pass2" />
+        <div class="label-custom text-primary">
+        <label for="Re-enterPassword">Re-enter Password::</label>
+        </div>
+        <input type="password" id="Re-enterPassword" class="form-control" name="pass2" />
         <br>
+    </div>
         <?php 
         if ($error !== '')
         {
@@ -80,7 +125,25 @@ if (isset($_POST['email']) && isset($_POST['pass1']) && isset($_POST['pass2']))
             <?php
         }
         ?>
-        <button type="submit">Sign up!</button>
+    <div class="col-md-4 col-lg-8 col-xl-1 mx-auto" >   
+    <div class="row">  
+     <button type="submit" class="btn btn-primary ">Sign up!</button>
+        </div>
+    </div>
     </form>
+    </div>
+    </div>
+
+    </main>
+    <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center text-lg-center my-auto">
+          <p class="text-muted small mb-4 mb-lg-0">&copy; workhorse. 2019. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
     </body>
 </html>
