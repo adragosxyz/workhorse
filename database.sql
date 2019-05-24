@@ -38,15 +38,17 @@ CREATE TABLE SSHKeys(Id INT NOT NULL AUTO_INCREMENT,
 
 CREATE TABLE Coupons(Id INT NOT NULL AUTO_INCREMENT, 
                        CouponCode  VARCHAR(32) NOT NULL,
-                       CouponValue INT NOT NULL
+                       CouponValue INT NOT NULL,
                        PRIMARY KEY(Id)
                        );
 
 CREATE TABLE CouponTransaction(Id INT NOT NULL AUTO_INCREMENT, 
                        IdCoupon INT NOT NULL,
-                       IdUser INT NOT NULL
+                       IdUser INT NOT NULL,
                        PRIMARY KEY(Id)
                        );
+
+INSERT INTO Coupons(CouponCode, CouponValue) VALUES ('PROIECTUSO', 10000);
 
 -- #PENTRUTESTE
 INSERT INTO Users(Email, Password) VALUES('test@test.com', 'test');

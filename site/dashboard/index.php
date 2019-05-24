@@ -66,7 +66,7 @@ $user = $_SESSION['User'];
                   <i class="icon-user m-auto text-primary"></i>
                 </div>
                 <h3><?php echo "Hello, ".$user->email."<br>"; ?></h3>
-                <p class="lead mb-0"><?php echo "Your balance is $".($user->balance/100); ?></p>
+                <p class="lead mb-0"><?php echo "Your balance is $".number_format(((float)$user->balance)/1000, 2, '.', ''); ?></p>
                 <a href="/account/redeem.php"> Click here to redeem a coupon!</a>
               </div>
             </div>

@@ -3,6 +3,9 @@ apt-get update
 # Upgrade Packages
 apt-get upgrade
 
+mkdir /vps
+chown vagrant /vps
+
 # Basic Linux Stuff
 apt-get install -y git
 
@@ -38,9 +41,22 @@ apt-get install -y mysql-server
 # PHP-MYSQL lib
 apt-get install -y php7.2-mysql
 
-apt-get install -y vagrant
-
 mysql -f < /vagrant/database.sql
+
+apt-get install -y vagrant
+apt-get install -y docker.io
+
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
 
 # Restart Apache
 sudo service apache2 restart
+
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install -y certbot python-certbot-apache 
