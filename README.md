@@ -4,4 +4,4 @@ Echipa:
 
 Albăstroiu Dragoș 151 - PHP/Vagrant/Docker/Apache2
 
-Mircea Radu Vlad 151 - HTML/JavaScript/SQL/SEO
+Mircea Radu Vlad 151 - HTML/CSS/JavaScript/SQL
