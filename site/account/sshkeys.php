@@ -76,6 +76,6 @@ let stateObj = {
     foo: "dashboard",
 };
 
-history.replaceState(stateObj, "", "/dashboard/sshkeys.php");
+history.replaceState(stateObj, "", "/dashboard/");
 </script>
 
