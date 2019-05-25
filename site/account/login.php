@@ -99,7 +99,6 @@ if (isset($_POST['email']) && isset($_POST['pass']))
         <div class="alert alert-success" role="alert">
             Your account was registered! Please log in now.
         </div>
-        </div>
 
         <?php }?>
         <?php 
@@ -114,7 +113,8 @@ if (isset($_POST['email']) && isset($_POST['pass']))
         ?>
         <div class="col-md-4 col-lg-8 col-xl-1 mx-auto" >
         <button type="submit" class="btn btn-primary " >Login</button>
-    </div>
+      </div>
+      </div>
     </div>
     </form>
     </div>

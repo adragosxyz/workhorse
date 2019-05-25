@@ -5,6 +5,11 @@ apt-get upgrade
 
 mkdir /vps
 chown vagrant /vps
+chmod 777 /vps
+
+cp /vagrant/newvm.sh /vps/newvm.sh
+cp /vagrant/VagrantfileModel /vps/VagrantfileModel
+cp /vagrant/proxypass.txt /vps/proxypass.txt
 
 # Basic Linux Stuff
 apt-get install -y git
@@ -50,6 +55,13 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod proxy_balancer
 sudo a2enmod lbmethod_byrequests
+
+sudo echo "www-data ALL = NOPASSWD: /usr/bin/vagrant up" >> /etc/sudoers
+sudo echo "www-data ALL = NOPASSWD: /usr/bin/vagrant destroy -f" >> /etc/sudoers
+sudo echo "www-data ALL = NOPASSWD: /usr/bin/docker inspect *" >> /etc/sudoers
+sudo echo "www-data ALL = NOPASSWD: /usr/sbin/service apache2 reload" >> /etc/sudoers
+
+chown www-data /etc/apache2/sites-available/000-default.conf
 
 # Restart Apache
 sudo service apache2 restart

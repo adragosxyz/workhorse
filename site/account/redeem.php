@@ -34,6 +34,7 @@ if (isset($_POST['code']))
             $query = "UPDATE AccountBalance SET Balance=Balance+".$value." WHERE IdUser=".$user->id;
             mysqli_query($conn, $query);
             $_SESSION['User'] = new User($user->id, $user->email);
+            header('Location: /dashboard/');
         }
     }
     else {

@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Box Settings
+  config.vm.box = "tknerr/baseimage-ubuntu-18.04"
+  config.vm.box_version = "1.0.0"
+
+  config.vm.box_download_insecure = true
+  # Provider Settings
+  config.vm.provider "docker" do |vb|
+    #vb.memory = 2048
+    #vb.cpus = 4
+  end
+
+  # Network Settings
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "0.0.0.0"
+  config.vm.network "forwarded_port", guest: 22, host: SSHPORTREPLACE, host_ip: "0.0.0.0"
+  config.vm.network "forwarded_port", guest: 21, host: FTPPORTREPLACE1, host_ip: "0.0.0.0"
+  config.vm.network "forwarded_port", guest: 20, host: FTPPORTREPLACE2, host_ip: "0.0.0.0"
+
+  config.vm.provision "shell", path: "/vps/newvm.sh"
+end

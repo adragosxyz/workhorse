@@ -15,6 +15,8 @@ CREATE TABLE VirtualMachines  (Id INT NOT NULL AUTO_INCREMENT,
                               Name VARCHAR(100) NOT NULL,
                               Path VARCHAR(100) NOT NULL,
                               PrivateIP VARCHAR(100) NOT NULL,
+                              SSHPort INT NOT NULL,
+                              FTPPort INT NOT NULL,
                               Subdomain VARCHAR(100) NOT NULL,                              
                               StartDate DATETIME NOT NULL,
                               LastPaidDate DATETIME NOT NULL,
@@ -63,48 +65,56 @@ IdUser,
 Name,
 Path,
 PrivateIP,
+SSHPort,
+FTPPort,
 Subdomain,
 StartDate,
 LastPaidDate,
 Active,
 Price)
-VALUES (1, 'VM1', '/vms/VM1', '192.168.33.34', 'test1', NOW(), NOW(), 1, 100);
+VALUES (1, 'VM1', '/vms/VM1', '192.168.33.34', 2223, 21210, 'test1', NOW(), NOW(), 1, 100);
 
 INSERT INTO VirtualMachines(
 IdUser,
 Name,
 Path,
 PrivateIP,
+SSHPort,
+FTPPort,
 Subdomain,
 StartDate,
 LastPaidDate,
 Active,
 Price)
-VALUES (1, 'VM2', '/vms/VM2', '192.168.33.35', 'test2', NOW(), NOW(), 1, 200);
+VALUES (1, 'VM2', '/vms/VM2', '192.168.33.35', 2224, 21211, 'test2', NOW(), NOW(), 1, 200);
 
 INSERT INTO VirtualMachines(
 IdUser,
 Name,
 Path,
 PrivateIP,
+SSHPort,
+FTPPort,
 Subdomain,
 StartDate,
 LastPaidDate,
 Active,
 Price)
-VALUES (2, 'VM3', '/vms/VM3', '192.168.33.36', 'test3', NOW(), NOW(), 1, 100);
+VALUES (2, 'VM3', '/vms/VM3', '192.168.33.36', 2225, 21212, 'test3', NOW(), NOW(), 1, 100);
 
 INSERT INTO VirtualMachines(
 IdUser,
 Name,
 Path,
 PrivateIP,
+SSHPort,
+FTPPort,
 Subdomain,
 StartDate,
 LastPaidDate,
 Active,
 Price)
-VALUES (3, 'VM4', '/vms/VM4', '192.168.33.37', 'test4', NOW(), NOW(), 1, 100);
+VALUES (3, 'VM4', '/vms/VM4', '192.168.33.37', 2226, 21213, 'test4', NOW(), NOW(), 1, 100);
 -- #PENTRUTESTE                               
                                                                                                            
 
@@ -150,6 +160,6 @@ CREATE EVENT e_hourly
 delimiter ;
 
 
-
+SET @@global.event_scheduler = 1;
 SET password
 FOR 'workhorse'@'localhost' = password('workhorsepassword');

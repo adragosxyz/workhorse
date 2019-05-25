@@ -11,6 +11,9 @@ if (!isset($_SESSION['User']) || $_SESSION['User']===null) {
 
 $user = $_SESSION['User'];
 
+$user->getVMs();
+$user->getBalance();
+
 ?>
 
 <html>
@@ -72,7 +75,7 @@ $user = $_SESSION['User'];
             </div>
           </div>
         </div>
-        <div class="container" id="virtual-machines">
+        <div class="container" id="options">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3" style="border:1px solid #007bff;border-radius: 25px;padding:10px;">
@@ -102,6 +105,29 @@ $user = $_SESSION['User'];
             <p class="lead mb-0"><?php echo "You have ".sizeof($user->vms)." active Virtual Machine(s)"; ?></p>
             </div>
         </div>
+        <div class="container" id="virtual-machines">
+          <?php for ($i=0;$i<sizeof($user->vms);$i++) { ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-4" style="max-width:1000px;">
+                    <div class="features-icons-icon d-flex">
+                        <i class="icon-screen-desktop m-auto text-primary"></i>
+                    </div>
+                    <h3><?php echo $user->vms[$i]->subdomain; ?></h3>
+                    <p class="lead mb-0"><span style="font-weight: 700;">http:</span> <?php echo $user->vms[$i]->subdomain; ?>.wrecktheline.com (port 80)</p>
+                    <p class="lead mb-0"><span style="font-weight: 700;">ssh:</span> ssh vagrant@wrecktheline.com -p <?php echo $user->vms[$i]->sshport; ?></p>
+                    <p class="lead mb-0"><span style="font-weight: 700;">ftp:</span> ftp wrecktheline.com <?php echo $user->vms[$i]->ftpport; ?> (Active only)</p>
+                    <br>
+                    <form action="/dashboard/removevm.php" method="POST">
+                      <input type="hidden" name="id" value="<?php echo $user->vms[$i]->id;?>">
+                      <button type="submit" class="btn btn-danger">Destroy machine</button>
+                    </form>
+                  </div>
+              </div>
+            </div>
+          <?php } ?>
+
+        </div>
       </section>
 
           <!-- Footer -->
@@ -118,6 +144,13 @@ $user = $_SESSION['User'];
       <!-- Bootstrap core JavaScript -->
       <script src="/vendor/jquery/jquery.min.js"></script>
       <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script> 
+      $(document).ready(function() {
+          $('form button[type=submit]').click(function() {
+              return confirm('Are you sure you want to delete this virtual machine?');
+          });
+      });
+    </script>
     </body>
 
 </html>
