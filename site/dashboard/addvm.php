@@ -1,3 +1,41 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Online VPS Service">
+<meta name="author" content="workhorse.">
+
+<title>workhorse.</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/custom-made/stilizare.css" rel="stylesheet">
+<!-- Custom fonts for this template -->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="/https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/landing-page.min.css" rel="stylesheet">
+<link href="/css/site.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo1.png" id="logo-wh"/>
+      </a>
+    </div>
+         </nav>
+
+<main>
+
+
+
+<div class="col-md-10 col-lg-8 col-xl-6 mx-auto" style="margin-top: 8rem; margin-bottom:16rem">
 <?php 
 
 include '../debug.php';
@@ -79,17 +117,30 @@ if ($error === '') {
 ?>
     <h3>Create VPS</h3>
     <form action="/dashboard/addvm.php" method="POST">
+        <div class="label-custom text-dark">
         <label for="subdomain">Subdomain name (for HTTP access) minimum 3 characters, all lowercase alphabet</label>
-        <input type="text" name="subdomain" id="subdomain">
+        </div>
+        <input type="text" class="form-control" name="subdomain" id="subdomain">
         <br>
+
+        <div class="label-custom text-dark">
         <label for="">OS: Ubuntu 18.04.2</label>
+        </div>
         <br>
+
+        <div class="label-custom text-dark">
         <label for="">Price: $14/month ($0.021/hour)</label>
+        </div>
         <br>
+
+        <div class="label-custom text-dark">
         <label for="">Authentication: <a href="/account/sshkeys.php">SSH Key</a></label>
+        </div>
         <br>
-        <button type="submit">Create</button>
-    </form>
+
+        
+        <button type="submit" class="btn btn-primary">Create</button>
+        
 <?php } 
 else {
 ?>
@@ -189,3 +240,19 @@ if ($createvm === 1) {
 }
 
 ?>
+
+</div>
+</main>
+
+<footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center text-lg-center my-auto">
+          <p class="text-muted small mb-4 mb-lg-0">&copy; workhorse. 2019. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    </body>
+</html>

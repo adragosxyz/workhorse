@@ -30,6 +30,7 @@
       </a>
     </div>
 </nav>
+<main>
 <?php 
 
 include '../debug.php';
@@ -82,7 +83,7 @@ while($row=mysqli_fetch_array($data)){
 
 
 
-<main>
+
 
     <div class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
     <form action="/account/sshkeys.php" method="POST">
