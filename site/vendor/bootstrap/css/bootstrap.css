@@ -223,7 +223,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 100rem;
+  margin-bottom: 0.5rem;
 }
 
 button {
@@ -297,7 +297,7 @@ input[type="month"] {
 
 textarea {
   overflow: auto;
-  resize: vertical;
+  resize: both;
 }
 
 fieldset {

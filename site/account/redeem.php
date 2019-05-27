@@ -79,7 +79,7 @@ if (isset($_POST['code']))
         <img src="/img/logo1.png" id="logo-wh"/>
       </a>
     </div>
-         </nav>
+</nav>
 
     <main>
 
@@ -95,9 +95,11 @@ if (isset($_POST['code']))
         
             <input type="text" class="form-control" name="code" id="code">
             
-            <div class="col-md-4 col-lg-8 col-xl-5 mx-auto" style="margin-top: 4rem; margin-bottom: 0.5rem">   
+            <div class="col-md-4 col-lg-8 col-xl-5 mx-auto" style="margin-top: 4rem; margin-bottom: 1.5rem">   
             <button type="submit" class="btn btn-primary">Send code!</button>
             </div>
+
+
 
             <?php
             if ($error !== '')
