@@ -30,15 +30,18 @@ if (isset($_POST['id']))
         exit(0);
     }
 
-    $query = "SELECT Path,PrivateIP FROM VirtualMachines WHERE Id=".$id." AND IdUser=".$user->id;
+    $query = "SELECT Path,PrivateIP,Name FROM VirtualMachines WHERE Id=".$id." AND IdUser=".$user->id;
     $db = new Database();
     $conn = $db->getConnection();
     $data=mysqli_query($conn,$query);
 
     $path = "";
+    $private_ip="";
+    $name = "";
     if ($row=mysqli_fetch_array($data)){
         $path = $row["Path"];
         $private_ip = trim($row["PrivateIP"]);
+        $name = trim($row["Name"]);
     }
 
     if ($path=="")
@@ -59,6 +62,7 @@ if (isset($_POST['id']))
     $data=mysqli_query($conn,$query);
 
     exec("cd ".$path."; sudo vagrant destroy -f");
+    exec("sudo docker container rm -f ".$name);
 
     exec("sudo service apache2 reload");
 }

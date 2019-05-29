@@ -57,6 +57,7 @@ sudo a2enmod proxy_balancer
 sudo a2enmod lbmethod_byrequests
 
 sudo echo "www-data ALL = NOPASSWD: /usr/bin/vagrant up" >> /etc/sudoers
+sudo echo "www-data ALL = NOPASSWD: /usr/bin/docker container rm -f *" >> /etc/sudoers
 sudo echo "www-data ALL = NOPASSWD: /usr/bin/vagrant destroy -f" >> /etc/sudoers
 sudo echo "www-data ALL = NOPASSWD: /usr/bin/docker inspect *" >> /etc/sudoers
 sudo echo "www-data ALL = NOPASSWD: /usr/sbin/service apache2 reload" >> /etc/sudoers

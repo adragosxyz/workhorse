@@ -1,0 +1,2 @@
+5 * * * * /usr/bin/php /vagrant/removevms.php
+#needs root
