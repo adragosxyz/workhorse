@@ -4,3 +4,9 @@
     ProxyPass / http://REPLACEPRIVATEIP/
     ProxyPassReverse / http://REPLACEPRIVATEIP/
 </VirtualHost>
+
+<VirtualHost *:443>
+    ServerName REPLACESUBDOMAIN.wrecktheline.com
+    ProxyPass / http://REPLACEPRIVATEIP/
+    ProxyPassReverse / http://REPLACEPRIVATEIP/
+</VirtualHost>
