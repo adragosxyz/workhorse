@@ -61,6 +61,7 @@ if (isset($_POST['ssh_key']))
 {
     $ssh_key = $_POST['ssh_key'];
     $ssh_key = trim($ssh_key);
+    $ssh_key = mysqli_real_escape_string($conn, $ssh_key);
     $ssh_key = str_replace("\n","", $ssh_key);
 
     if (substr($ssh_key, 0, 8) === "ssh-rsa ") {

@@ -17,6 +17,7 @@ if (isset($_POST['code']))
     $db = new Database();
     $conn = $db->getConnection();
     $code = $_POST['code'];
+    $code = mysqli_real_escape_string($conn, $code);
     $query = "SELECT Id, CouponValue FROM Coupons WHERE CouponCode LIKE '".$code."'";
     $data=mysqli_query($conn,$query);
     if ($row=mysqli_fetch_array($data)){
